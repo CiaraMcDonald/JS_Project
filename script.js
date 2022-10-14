@@ -8,6 +8,7 @@ let options = ['Rock', 'Paper', 'Sissors'];
 let playGame = function () {
 
   let startGame = confirm('Lets play Rock, Paper, Sissors!');
+  // If user pressed Cancel, end function
   if (!startGame) {
     return;
   }
@@ -15,7 +16,7 @@ let playGame = function () {
   // Ask user for their choice
   let userChoice = window.prompt('Type R for Rock, P for Paper or S for Sissors.');
 
-  // If user pressed Cancel, immediately end function
+  // If user pressed Cancel, end function
   if (!userChoice) {
     return;
   }
