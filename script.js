@@ -8,6 +8,7 @@ let options = ['Rock', 'Paper', 'Sissors'];
 let playGame = function () {
 
   let startGame = confirm('Lets play Rock, Paper, Sissors!');
+
   // If user pressed Cancel, end function
   if (!startGame) {
     return;
@@ -29,6 +30,7 @@ let playGame = function () {
   let computerChoice = options[index];
 
   alert('The computer chose ' + computerChoice);
+  console.log('The computer chose ' + computerChoice)
 
   // If choices are the same, it's a tie
   if (
@@ -38,6 +40,7 @@ let playGame = function () {
   ) {
     ties++;
     alert("It's a tie!");
+    console.log("It's a tie!")
 
   // Check every win condition for the player
   } else if (
@@ -47,15 +50,18 @@ let playGame = function () {
   ) {
     wins++;
     alert("You win!");
+    console.log("You win!")
 
   // If above conditions failed, assume player lost
   } else {
     losses++;
     alert("You loose!");
+    console.log("You loose!")
   }
 
   // Print stats with line breaks
   alert('Stats:\nWins: ' + wins + '\nLosses: ' + losses + '\nTies: ' + ties);
+  console.log('Stats:\nWins: ' + wins + '\nLosses: ' + losses + '\nTies: ' + ties)
 
   // Do you want to play again?
   let playAgain = confirm('Play again?');
