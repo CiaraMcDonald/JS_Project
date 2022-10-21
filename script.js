@@ -55,10 +55,6 @@ let playGame = function () {
       alert("Error! Please type R, P, or S.");
       console.log("Error! Please type R, P, or S.");
     }
-    // Print stats with line breaks
-    alert('Stats:\nWins: ' + wins + '\nLosses: ' + losses + '\nTies: ' + ties);
-    console.log('Stats:\nWins: ' + wins + '\nLosses: ' + losses + '\nTies: ' + ties);
-
     if (playGame) {
       alert("End of round  " + i);
       console.log("End of round  " + i);
@@ -67,6 +63,9 @@ let playGame = function () {
     if (i == 5) {
       alert("Game Over");
       console.log("Game Over");
+          // Print stats with line breaks
+    alert('Stats:\nWins: ' + wins + '\nLosses: ' + losses + '\nTies: ' + ties);
+    console.log('Stats:\nWins: ' + wins + '\nLosses: ' + losses + '\nTies: ' + ties);
     }
   }
 };
