@@ -7,68 +7,67 @@ let options = ['Rock', 'Paper', 'Sissors'];
 
 let playGame = function () {
 
-  let startGame = confirm('Lets play Rock, Paper, Sissors!');
+  for (let i = 1; i < 6; i++) {
 
-  // If user pressed Cancel, end function
-  if (!startGame) {
-    return;
-  }
 
-  // Ask user for their choice
-  let userChoice = window.prompt('Type R for Rock, P for Paper or S for Sissors.');
+    // Ask user for their choice
+    let userChoice = window.prompt('Type R for Rock, P for Paper or S for Sissors.');
 
-  // If user pressed Cancel, end function
-  if (!userChoice) {
-    return;
-  }
+    // Convert to uppercase to avoid case errors
+    userChoice = userChoice.toUpperCase();
 
-  // Convert to uppercase to avoid case errors
-  userChoice = userChoice.toUpperCase();
+    // Get random index from array of options
+    let index = Math.floor(Math.random() * options.length);
+    let computerChoice = options[index];
 
-  // Get random index from array of options
-  let index = Math.floor(Math.random() * options.length);
-  let computerChoice = options[index];
+    alert('The computer chose ' + computerChoice);
+    console.log('The computer chose ' + computerChoice);
 
-  alert('The computer chose ' + computerChoice);
-  console.log('The computer chose ' + computerChoice)
+    // If choices are the same, it's a tie
+    if (
+      (userChoice === 'R' && computerChoice === 'Rock') ||
+      (userChoice === 'P' && computerChoice === 'Paper') ||
+      (userChoice === 'S' && computerChoice === 'Sissors')
+    ) {
+      ties++;
+      alert("It's a tie!");
+      console.log("It's a tie!");
 
-  // If choices are the same, it's a tie
-  if (
-    (userChoice === 'R' && computerChoice === 'Rock') ||
-    (userChoice === 'P' && computerChoice === 'Paper') ||
-    (userChoice === 'S' && computerChoice === 'Sissors')
-  ) {
-    ties++;
-    alert("It's a tie!");
-    console.log("It's a tie!")
+      // Check every win condition for the player
+    } else if (
+      (userChoice === 'R' && computerChoice === 'Sissors') ||
+      (userChoice === 'P' && computerChoice === 'Rock') ||
+      (userChoice === 'S' && computerChoice === 'Paper')
+    ) {
+      wins++;
+      alert("You win!");
+      console.log("You win!")
+    } else if (
+      (userChoice === "R" && computerChoice === "Paper") ||
+      (userChoice === "P" && computerChoice === "Scissors") ||
+      (userChoice === "S" && computerChoice == "Rock")
+    ) {
+      losses++;
+      alert("You lose!");
+      console.log("You lose!")
+    } else {
+      i--;
+      alert("Error! Please type R, P, or S.");
+      console.log("Error! Please type R, P, or S.");
+    }
+    // Print stats with line breaks
+    alert('Stats:\nWins: ' + wins + '\nLosses: ' + losses + '\nTies: ' + ties);
+    console.log('Stats:\nWins: ' + wins + '\nLosses: ' + losses + '\nTies: ' + ties);
 
-  // Check every win condition for the player
-  } else if (
-    (userChoice === 'R' && computerChoice === 'Sissors') ||
-    (userChoice === 'P' && computerChoice === 'Rock') ||
-    (userChoice === 'S' && computerChoice === 'Paper')
-  ) {
-    wins++;
-    alert("You win!");
-    console.log("You win!")
+    if (playGame) {
+      alert("End of round  " + i);
+      console.log("End of round  " + i);
+    }
 
-  // If above conditions failed, assume player lost
-  } else {
-    losses++;
-    alert("You loose!");
-    console.log("You loose!")
-  }
-
-  // Print stats with line breaks
-  alert('Stats:\nWins: ' + wins + '\nLosses: ' + losses + '\nTies: ' + ties);
-  console.log('Stats:\nWins: ' + wins + '\nLosses: ' + losses + '\nTies: ' + ties)
-
-  // Do you want to play again?
-  let playAgain = confirm('Play again?');
-
-  // If user pressed OK, play the game again
-  if (playAgain) {
-    playGame();
+    if (i == 5) {
+      alert("Game Over");
+      console.log("Game Over");
+    }
   }
 };
 
